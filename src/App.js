@@ -17,7 +17,6 @@ function App() {
   const [date,setDate] = useState();
   const [refresh,setRefresh] = useState(true);
   
-
   useEffect(() => {
     axios.get("https://randomuser.me/api")
     .then((response) => setPicture(() => response.data.results[0].picture.thumbnail))
@@ -47,7 +46,6 @@ function App() {
 
   return (
     <div className="App d-flex justify-content-center flex-column align-items-center rounded-3" style = {{height:"100vh"}}>
-
       <div className="main-container" >
         <div className ="d-flex justify-content-around my-3"> 
           <img className="rounded-circle" src={picture} alt="user" style = {{width:"8rem"}} />
@@ -81,9 +79,7 @@ function App() {
           <button className= "btn border-0 rounded-3 fs-4 p-2" onClick={refreshRandom} >Random User</button>
       </div>
     </div> 
-    
   );
-  
 }
 
 export default App;
