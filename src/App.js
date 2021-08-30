@@ -16,28 +16,20 @@ function App() {
   const [age,setAge ] = useState();
   const [date,setDate] = useState();
   const [refresh,setRefresh] = useState(true);
+ 
+  const response = axios.get("https://randomuser.me/api")
   
   useEffect(() => {
-    axios.get("https://randomuser.me/api")
-    .then((response) => setPicture(() => response.data.results[0].picture.thumbnail))
-    axios.get("https://randomuser.me/api")
-    .then((response) => setTitle(() => response.data.results[0].name.title))
-    axios.get("https://randomuser.me/api")
-    .then((response) => setFirstName(() => response.data.results[0].name.first))
-    axios.get("https://randomuser.me/api")
-    .then((response) => setLastName(() => response.data.results[0].name.last))
-    axios.get("https://randomuser.me/api")
-    .then((response) => setEmail(() => response.data.results[0].email))
-    axios.get("https://randomuser.me/api")
-    .then((response) => setPhoneNumber(() => response.data.results[0].phone))
-    axios.get("https://randomuser.me/api")
-    .then((response) => setCity(() => response.data.results[0].location.city))
-    axios.get("https://randomuser.me/api")
-    .then((response) => setCountry(() => response.data.results[0].location.country))
-    axios.get("https://randomuser.me/api")
-    .then((response) => setAge(() => response.data.results[0].dob.age))
-    axios.get("https://randomuser.me/api")
-    .then((response) => setDate(() => response.data.results[0].registered.date.slice(0,10)))
+    response.then((response) => setPicture(() => response.data.results[0].picture.thumbnail))
+    response.then((response) => setTitle(() => response.data.results[0].name.title))
+    response.then((response) => setFirstName(() => response.data.results[0].name.first))
+    response.then((response) => setLastName(() => response.data.results[0].name.last))
+    response.then((response) => setEmail(() => response.data.results[0].email))
+    response.then((response) => setPhoneNumber(() => response.data.results[0].phone))
+    response.then((response) => setCity(() => response.data.results[0].location.city))
+    response.then((response) => setCountry(() => response.data.results[0].location.country))
+    response.then((response) => setAge(() => response.data.results[0].dob.age))
+    response.then((response) => setDate(() => response.data.results[0].registered.date.slice(0,10)))
   },[refresh])
 
   const refreshRandom = () => {
